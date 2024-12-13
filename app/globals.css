@@ -3,19 +3,67 @@
 @tailwind utilities;
 
 :root {
+  --primary: #2563eb;
+  --secondary: #475569;
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f172a;
+  --muted: #f1f5f9;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply bg-white text-slate-900 antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium tracking-tight;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .card {
+    @apply bg-white rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors
+    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none 
+    disabled:opacity-50 h-10 px-4 py-2;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary/90 focus-visible:ring-primary;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-secondary/90 focus-visible:ring-secondary;
+  }
+
+  .btn-outline {
+    @apply border border-slate-200 bg-white hover:bg-slate-100 hover:text-slate-900 focus-visible:ring-slate-200;
+  }
+
+  .input {
+    @apply flex h-10 w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm 
+    placeholder:text-slate-500 focus-visible:outline-none focus-visible:ring-2 
+    focus-visible:ring-primary disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  .container {
+    @apply px-4 mx-auto max-w-7xl;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
 }
