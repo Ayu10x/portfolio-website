@@ -4,6 +4,7 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Download, Github, Linkedin } from 'lucide-react'
+import Image from 'next/image'
 
 export default function HomePage() {
   const RESUME_GOOGLE_DRIVE_LINK = "https://drive.google.com/file/d/1LB7abRSwYroicnWqnygsm8OKXEmsPQLv/view?usp=sharing"
@@ -19,10 +20,12 @@ export default function HomePage() {
         >
           <div className="avatar mb-8">
             <div className="w-48 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-              <img 
+              <Image 
                 src="/images/profile.JPG" 
                 alt="Ayush Pattnaik" 
                 className="object-cover"
+                width={500}
+                height={300}
               />
             </div>
           </div>

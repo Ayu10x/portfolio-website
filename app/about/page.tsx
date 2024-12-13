@@ -18,7 +18,7 @@ export default function AboutPage() {
             </h1>
             <div className="prose lg:prose-xl">
               <p>
-                I am a passionate Computer Science Engineer graduating from Siksha 'O' Anusandhan with a remarkable 9.12 CGPA. My academic journey has been marked by a deep interest in cutting-edge technologies like Generative AI, Artificial Intelligence, and Cloud Computing.
+                I am a passionate Computer Science Engineer graduating from Siksha &apos;O&apos; Anusandhan with a remarkable 9.12 CGPA. My academic journey has been marked by a deep interest in cutting-edge technologies like Generative AI, Artificial Intelligence, and Cloud Computing.
               </p>
               <p>
                 As the President of the Innovation and Entrepreneurship Cell, I have been instrumental in fostering a vibrant startup culture, organizing events that inspire and empower students to transform their innovative ideas into reality.
