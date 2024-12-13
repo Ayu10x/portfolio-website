@@ -7,8 +7,6 @@ import { Mail, Phone, Linkedin, Github, MapPin } from 'lucide-react'
 import emailjs from '@emailjs/browser'
 
 export default function ContactPage() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -25,8 +23,6 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setIsSubmitting(true)
-    setSubmitStatus('idle')
 
     try {
       await emailjs.send(
@@ -40,13 +36,9 @@ export default function ContactPage() {
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY // Using environment variable
       )
 
-      setSubmitStatus('success')
       setFormData({ name: '', email: '', message: '' })
     } catch (error) {
       console.error('Failed to send message:', error)
-      setSubmitStatus('error')
-    } finally {
-      setIsSubmitting(false)
     }
   }
 

@@ -34,7 +34,7 @@ export default function AboutPage() {
               <div className="card-body items-center text-center">
                 <h3 className="card-title text-2xl">Education</h3>
                 <p>B.Tech in Computer Science</p>
-                <p className="text-sm">Siksha 'O' Anusandhan</p>
+                <p className="text-sm">Siksha &apos;O&apos; Anusandhan</p>
                 <p className="text-primary font-bold">9.12 CGPA</p>
               </div>
             </div>
