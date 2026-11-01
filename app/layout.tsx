@@ -10,8 +10,9 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Ayush Pattnaik | Portfolio',
-  description: 'Portfolio of Ayush Pattnaik - Computer Science Engineer',
+  title: 'Ayush Pattnaik | Backend Developer, Java & Spring Boot',
+  description:
+    'Freelance backend developer: Spring Boot and Node REST APIs, bug fixes, integrations, deployments and migrations for startups and small businesses.',
   icons: [
     {
       url: '/favicon.ico',

@@ -1,87 +1,36 @@
 // app/experience/page.tsx
-'use client'
-
-import { motion } from 'framer-motion'
 import { Briefcase } from 'lucide-react'
+import { experiences } from '@/lib/site'
 
-const experiences = [
-  {
-    title: "Product Consultant - Intern",
-    company: "HighRadius",
-    duration: "May 2023 – July 2023",
-    description: [
-      "Developed an in-depth understanding of order-to-cash processes",
-      "Gained expertise in HighRadius products and their functionalities",
-      "Conducted product demonstrations and communicated value propositions"
-    ]
-  },
-  {
-    title: "President, Innovation And Entrepreneurship Cell",
-    company: "Siksha 'O' Anusandhan",
-    duration: "Apr 2021 - May 2024",
-    description: [
-      "Leading a dynamic organization fostering startup culture",
-      "Organizing events and workshops to promote innovation",
-      "Empowering students to transform ideas into successful innovations"
-    ]
-  },
-  {
-    title: "Customer Experience Researcher",
-    company: "AGE19 Enterprise",
-    duration: "Oct 2020 – Jun 2022",
-    description: [
-      "Collaborated with customers to gain insights and enhance satisfaction",
-      "Managed brand promotions and influencer collaborations",
-      "Maintained accurate inventory records"
-    ]
-  }
-]
+export const metadata = { title: 'Experience | Ayush Pattnaik' }
 
 export default function ExperiencePage() {
   return (
-    <div className="min-h-screen bg-base-200 py-16">
-      <motion.div 
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="container mx-auto px-4"
-      >
-        <h1 className="text-4xl font-bold mb-12 text-center text-primary">
-          Professional Experience
-        </h1>
-
-        <div className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
-          {experiences.map((exp, index) => (
-            <div 
-              key={index} 
-              className="timeline-middle"
-            >
-              <motion.div
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-              >
-                <div className={`timeline-${index % 2 === 0 ? 'start' : 'end'} md:text-${index % 2 === 0 ? 'right' : 'left'}`}>
-                  <div className="card bg-base-100 shadow-xl">
-                    <div className="card-body">
-                      <div className="flex items-center mb-2">
-                        <Briefcase className="mr-3 text-primary" />
-                        <h3 className="card-title text-xl">{exp.title}</h3>
-                      </div>
-                      <p className="text-sm font-semibold mb-2">{exp.company} | {exp.duration}</p>
-                      <ul className="list-disc list-inside text-sm">
-                        {exp.description.map((desc, idx) => (
-                          <li key={idx}>{desc}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
+    <div className="min-h-screen bg-base-200 pt-28 pb-16">
+      <div className="container mx-auto px-4 max-w-3xl">
+        <h1 className="text-4xl font-bold mb-10">Experience</h1>
+        <ol className="relative border-l border-slate-300 space-y-8 ml-3">
+          {experiences.map((exp) => (
+            <li key={`${exp.title}-${exp.company}`} className="pl-8 relative">
+              <span className="absolute -left-3 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-white ring-2 ring-primary">
+                <Briefcase className="h-3 w-3 text-primary" />
+              </span>
+              <div className="card p-6">
+                <div className="flex flex-wrap justify-between gap-2 mb-1">
+                  <h2 className="text-lg font-semibold">{exp.title}</h2>
+                  <span className="text-sm text-slate-500">{exp.duration}</span>
                 </div>
-              </motion.div>
-            </div>
+                <p className="text-sm font-medium text-primary mb-3">{exp.company}</p>
+                <ul className="list-disc list-outside ml-5 space-y-1 text-sm text-slate-700">
+                  {exp.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              </div>
+            </li>
           ))}
-        </div>
-      </motion.div>
+        </ol>
+      </div>
     </div>
   )
 }

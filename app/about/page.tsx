@@ -1,75 +1,42 @@
-'use client'
+// app/about/page.tsx
+import { achievements } from '@/lib/site'
 
-import { motion } from 'framer-motion'
+export const metadata = { title: 'About | Ayush Pattnaik' }
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-base-200 py-16">
-      <motion.div 
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="container mx-auto px-4"
-      >
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h1 className="text-4xl font-bold mb-6 text-primary">
-              About Me
-            </h1>
-            <div className="prose lg:prose-xl">
-              <p>
-                I am a passionate Computer Science Engineer graduating from Siksha &apos;O&apos; Anusandhan with a remarkable 9.12 CGPA. My academic journey has been marked by a deep interest in cutting-edge technologies like Generative AI, Artificial Intelligence, and Cloud Computing.
-              </p>
-              <p>
-                As the President of the Innovation and Entrepreneurship Cell, I have been instrumental in fostering a vibrant startup culture, organizing events that inspire and empower students to transform their innovative ideas into reality.
-              </p>
-              <p>
-                My professional experience includes internships and research projects that have honed my skills in product consulting, customer experience, and advanced technological domains.
-              </p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-6">
-            <div className="card bg-base-100 shadow-xl">
-              <div className="card-body items-center text-center">
-                <h3 className="card-title text-2xl">Education</h3>
-                <p>B.Tech in Computer Science</p>
-                <p className="text-sm">Siksha &apos;O&apos; Anusandhan</p>
-                <p className="text-primary font-bold">9.12 CGPA</p>
-              </div>
-            </div>
-
-            <div className="card bg-base-100 shadow-xl">
-              <div className="card-body items-center text-center">
-                <h3 className="card-title text-2xl">Research</h3>
-                <p>Multimodal AI Project</p>
-                <p className="text-sm">ODICON 2024 Conference</p>
-                <p className="text-primary font-bold">Presented Research</p>
-              </div>
-            </div>
-
-            <div className="card bg-base-100 shadow-xl">
-              <div className="card-body items-center text-center">
-                <h3 className="card-title text-2xl">Interests</h3>
-                <ul className="list-disc text-left">
-                  <li>Gen AI</li>
-                  <li>Cloud Tech</li>
-                  <li>OpenSource</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="card bg-base-100 shadow-xl">
-              <div className="card-body items-center text-center">
-                <h3 className="card-title text-2xl">Achievements</h3>
-                <p>LeetCode Rating</p>
-                <p className="text-primary font-bold">1778</p>
-                <p className="text-sm">HackerRank Certified</p>
-              </div>
-            </div>
+    <div className="min-h-screen bg-base-200 pt-28 pb-16">
+      <div className="container mx-auto px-4 grid md:grid-cols-3 gap-12">
+        <div className="md:col-span-2">
+          <h1 className="text-4xl font-bold mb-6">About</h1>
+          <div className="prose lg:prose-lg max-w-none">
+            <p>
+              I&apos;m a backend developer who builds Spring Boot microservices with MongoDB and Kafka for enterprise
+              applications. Outside my full-time role I take on a small number of fixed-scope freelance projects: API
+              development, backend bug fixes, integrations, deployments, migrations and recovering hacked websites.
+            </p>
+            <p>
+              I like problems with a clear definition of done. Before I start, we agree in writing on what will be
+              delivered, what is out of scope, the price and the timeline. You get regular updates, a working demo and
+              documentation at handover.
+            </p>
+            <p>
+              I graduated in Computer Science from Siksha &apos;O&apos; Anusandhan (ITER), where I led the Innovation
+              &amp; Entrepreneurship Cell and published research on multimodal AI at ODICON 2024 (IEEE). I&apos;m currently
+              building <a href="https://github.com/Ayu10x/loadout" target="_blank" rel="noopener noreferrer">Loadout</a>,
+              a catalog of tested AI coding tools.
+            </p>
           </div>
         </div>
-      </motion.div>
+        <div className="card p-6 h-fit">
+          <h2 className="text-lg font-semibold mb-4">Highlights</h2>
+          <ul className="space-y-3 text-sm text-slate-700">
+            {achievements.map((a) => (
+              <li key={a} className="border-l-2 border-primary pl-3">{a}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </div>
   )
 }
