@@ -29,7 +29,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden ring-4 ring-primary/20 shrink-0">
-            <Image src="/images/profile.JPG" alt={profile.name} width={448} height={448} className="object-cover w-full h-full" priority />
+            <Image src="/images/ayush.jpg" alt={profile.name} width={448} height={448} className="object-cover w-full h-full" priority />
           </div>
         </div>
       </section>
@@ -38,13 +38,19 @@ export default function HomePage() {
       <section id="services" className="py-20 scroll-mt-16">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-2">Services</h2>
-          <p className="text-slate-600 mb-10">Introductory prices. Every job is quoted after I look at the actual problem.</p>
-          <div className="grid md:grid-cols-3 gap-6">
+          <p className="text-slate-600 mb-2">Every job is quoted as a fixed price after I look at the actual problem.</p>
+          <p className="text-sm font-medium text-primary mb-10">Introductory offer: 20% off for my first 3 clients.</p>
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
             {services.map((s) => (
               <div key={s.name} className="card p-6 flex flex-col">
                 <h3 className="text-xl font-semibold mb-1">{s.name}</h3>
                 <p className="text-sm text-slate-500 mb-4">from <span className="font-semibold text-slate-900">{s.from}</span> · {s.delivery}</p>
                 <p className="text-slate-600 mb-4">{s.summary}</p>
+                <ul className="text-sm mb-4 space-y-1 border-l-2 border-primary/30 pl-3">
+                  {s.pricing.map((line) => (
+                    <li key={line} className="text-slate-700">{line}</li>
+                  ))}
+                </ul>
                 <ul className="space-y-2 text-sm">
                   {s.items.map((item) => (
                     <li key={item} className="flex gap-2">
