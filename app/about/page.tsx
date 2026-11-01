@@ -16,7 +16,9 @@ export default function AboutPage() {
               development, backend bug fixes, integrations, deployments, migrations and recovering hacked websites.
             </p>
             <p>
-              I like problems with a clear definition of done. Before I start, we agree in writing on what will be
+              I&apos;m big on AI-assisted development. I use AI coding tools at every stage, from planning and code to
+              tests and review, which means faster delivery without cutting corners. I like problems with a clear
+              definition of done. Before I start, we agree in writing on what will be
               delivered, what is out of scope, the price and the timeline. You get regular updates, a working demo and
               documentation at handover.
             </p>

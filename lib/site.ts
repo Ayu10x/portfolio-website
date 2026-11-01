@@ -3,7 +3,7 @@
 
 export const profile = {
   name: 'Ayush Pattnaik',
-  headline: 'Backend Developer · Java & Spring Boot · REST APIs · MERN',
+  headline: 'Backend Developer · Java & Spring Boot · REST APIs · AI-assisted development',
   pitch:
     'I build, fix and secure backend systems for startups, agencies and small businesses: REST APIs, integrations, deployments, migrations and hacked-site recovery. Fixed scope, clear quotes, delivered in days.',
   email: 'ayp.scp@gmail.com',
@@ -176,7 +176,8 @@ export const skills = [
   { group: 'Frontend', items: ['React', 'Next.js', 'JavaScript', 'TypeScript', 'HTML/CSS', 'Tailwind'] },
   { group: 'Databases', items: ['MongoDB', 'MySQL', 'PostgreSQL', 'SQL'] },
   { group: 'Tools', items: ['Docker', 'Git', 'Postman', 'Swagger / OpenAPI', 'IntelliJ', 'VS Code'] },
-  { group: 'Also', items: ['Python', 'Django REST Framework', 'Local LLMs'] },
+  { group: 'AI', items: ['AI-assisted development', 'Claude Code', 'Codex', 'LLM apps', 'Local LLMs'] },
+  { group: 'Also', items: ['Python', 'Django REST Framework'] },
 ]
 
 export const achievements = [
