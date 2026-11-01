@@ -8,7 +8,7 @@ export const profile = {
     'I build, fix and secure backend systems for startups, agencies and small businesses: REST APIs, integrations, deployments, migrations and hacked-site recovery. Fixed scope, clear quotes, delivered in days.',
   email: 'ayp.scp@gmail.com',
   phone: '+91 7978944854',
-  location: 'Bhubaneswar, Odisha, India',
+  location: 'Bangalore, Karnataka, India',
   github: 'https://github.com/Ayu10x',
   linkedin: 'https://www.linkedin.com/in/ayupattnaik19',
   // Replace with the link to the updated resume PDF
