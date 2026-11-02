@@ -9,7 +9,8 @@ export const profile = {
   email: 'ayp.scp@gmail.com',
   phone: '+91 7978944854',
   // WhatsApp number in international format, digits only
-  whatsapp: '917978944854',
+  whatsapp: '917022523101',
+  whatsappDisplay: '+91 70225 23101',
   location: 'Bangalore, Karnataka, India',
   github: 'https://github.com/Ayu10x',
   linkedin: 'https://www.linkedin.com/in/ayupattnaik19',

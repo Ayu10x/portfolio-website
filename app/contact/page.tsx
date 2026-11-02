@@ -46,7 +46,7 @@ export default function ContactPage() {
               <div className="flex items-center">
                 <MessageCircle className="mr-4 h-5 w-5 text-primary" />
                 <a href={whatsappLink('Hi Ayush, ')} target="_blank" rel="noopener noreferrer" className="hover:text-primary">
-                  WhatsApp {profile.phone}
+                  WhatsApp {profile.whatsappDisplay}
                 </a>
               </div>
               <div className="flex items-center">
