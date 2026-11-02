@@ -188,5 +188,5 @@ export const achievements = [
   'Paper published at ODICON 2024 (IEEE)',
   'Building Loadout: tested AI coding tools for Claude Code and Codex',
   'Led the Innovation & Entrepreneurship Cell at ITER for 3 years as President',
-  "B.Tech Computer Science, ITER (S'O'A), 9.12 CGPA",
+  "B.Tech Computer Science, ITER (S'O'A)",
 ]
