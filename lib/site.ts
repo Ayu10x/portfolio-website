@@ -8,6 +8,8 @@ export const profile = {
     'I build, fix and secure backend systems for startups, agencies and small businesses: REST APIs, integrations, deployments, migrations and hacked-site recovery. Fixed scope, clear quotes, delivered in days.',
   email: 'ayp.scp@gmail.com',
   phone: '+91 7978944854',
+  // WhatsApp number in international format, digits only
+  whatsapp: '917978944854',
   location: 'Bangalore, Karnataka, India',
   github: 'https://github.com/Ayu10x',
   linkedin: 'https://www.linkedin.com/in/ayupattnaik19',
@@ -181,8 +183,9 @@ export const skills = [
 ]
 
 export const achievements = [
+  'Recovered a hacked production website that in-house cleanups could not fix',
   'Paper published at ODICON 2024 (IEEE)',
-  'LeetCode contest rating 1778',
-  'HackerRank certified: Java, Python, SQL',
-  'B.Tech Computer Science, ITER (S\'O\'A), 9.12 CGPA',
+  'Building Loadout: tested AI coding tools for Claude Code and Codex',
+  'Led the Innovation & Entrepreneurship Cell at ITER for 3 years as President',
+  "B.Tech Computer Science, ITER (S'O'A), 9.12 CGPA",
 ]

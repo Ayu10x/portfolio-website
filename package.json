@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emailjs/browser": "^4.4.1",
     "@heroicons/react": "^2.2.0",
     "daisyui": "^4.12.22",
     "framer-motion": "^11.14.3",

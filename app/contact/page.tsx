@@ -2,42 +2,32 @@
 'use client'
 
 import { useState } from 'react'
-import { Mail, Phone, Linkedin, Github, MapPin } from 'lucide-react'
-import emailjs from '@emailjs/browser'
+import { Mail, Phone, Linkedin, Github, MapPin, MessageCircle } from 'lucide-react'
 import { profile, services } from '@/lib/site'
 
-type Status = 'idle' | 'sending' | 'sent' | 'error'
+const emptyForm = { name: '', service: '', message: '' }
 
-const emptyForm = { name: '', email: '', service: '', message: '' }
+// Opens WhatsApp (app on phones, WhatsApp Web on desktop) with the enquiry pre-filled
+function whatsappLink(text: string) {
+  return `https://wa.me/${profile.whatsapp}?text=${encodeURIComponent(text)}`
+}
 
 export default function ContactPage() {
   const [formData, setFormData] = useState(emptyForm)
-  const [status, setStatus] = useState<Status>('idle')
+  const [opened, setOpened] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    setStatus('sending')
-
-    try {
-      // Service goes into the message so the existing EmailJS template keeps working
-      const message = formData.service ? `[${formData.service}]\n\n${formData.message}` : formData.message
-      await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-        { from_name: formData.name, from_email: formData.email, message },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-      )
-      setFormData(emptyForm)
-      setStatus('sent')
-    } catch (error) {
-      console.error('Failed to send message:', error)
-      setStatus('error')
-    }
+    const lines = [`Hi Ayush, I'm ${formData.name}.`]
+    if (formData.service) lines.push(`I need help with: ${formData.service}`)
+    lines.push('', formData.message)
+    window.open(whatsappLink(lines.join('\n')), '_blank', 'noopener,noreferrer')
+    setOpened(true)
   }
 
   return (
@@ -53,6 +43,12 @@ export default function ContactPage() {
           <div className="card p-8 md:col-span-2 h-fit">
             <h2 className="text-xl font-semibold mb-6">Direct</h2>
             <div className="space-y-4">
+              <div className="flex items-center">
+                <MessageCircle className="mr-4 h-5 w-5 text-primary" />
+                <a href={whatsappLink('Hi Ayush, ')} target="_blank" rel="noopener noreferrer" className="hover:text-primary">
+                  WhatsApp {profile.phone}
+                </a>
+              </div>
               <div className="flex items-center">
                 <Mail className="mr-4 h-5 w-5 text-primary" />
                 <a href={`mailto:${profile.email}`} className="hover:text-primary">{profile.email}</a>
@@ -77,18 +73,13 @@ export default function ContactPage() {
           </div>
 
           <div className="card p-8 md:col-span-3">
-            <h2 className="text-xl font-semibold mb-6">Project enquiry</h2>
+            <h2 className="text-xl font-semibold mb-2">Project enquiry</h2>
+            <p className="text-sm text-slate-500 mb-6">Sends your enquiry to me on WhatsApp. You can review it before it goes.</p>
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <label className="form-control">
-                  <span className="label-text mb-1">Name</span>
-                  <input type="text" name="name" required className="input input-bordered" value={formData.name} onChange={handleChange} />
-                </label>
-                <label className="form-control">
-                  <span className="label-text mb-1">Email</span>
-                  <input type="email" name="email" required className="input input-bordered" value={formData.email} onChange={handleChange} />
-                </label>
-              </div>
+              <label className="form-control">
+                <span className="label-text mb-1">Name</span>
+                <input type="text" name="name" required className="input input-bordered" value={formData.name} onChange={handleChange} />
+              </label>
 
               <label className="form-control">
                 <span className="label-text mb-1">What do you need?</span>
@@ -113,16 +104,13 @@ export default function ContactPage() {
                 ></textarea>
               </label>
 
-              <button type="submit" className="btn btn-primary w-full" disabled={status === 'sending'}>
-                {status === 'sending' ? 'Sending…' : 'Send enquiry'}
+              <button type="submit" className="btn btn-primary w-full">
+                <MessageCircle className="mr-2 h-4 w-4" /> Continue on WhatsApp
               </button>
 
-              {status === 'sent' && (
-                <p role="status" className="text-sm text-green-700">Thanks, your message is in. I&apos;ll reply within a day.</p>
-              )}
-              {status === 'error' && (
-                <p role="alert" className="text-sm text-red-700">
-                  Something went wrong sending that. Please email me at{' '}
+              {opened && (
+                <p role="status" className="text-sm text-slate-600">
+                  WhatsApp should have opened with your message. If it didn&apos;t, email me at{' '}
                   <a href={`mailto:${profile.email}`} className="underline">{profile.email}</a>.
                 </p>
               )}
