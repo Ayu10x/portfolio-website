@@ -14,8 +14,6 @@ export const profile = {
   location: 'Bangalore, Karnataka, India',
   github: 'https://github.com/Ayu10x',
   linkedin: 'https://www.linkedin.com/in/ayupattnaik19',
-  // Replace with the link to the updated resume PDF
-  resume: 'https://drive.google.com/file/d/1LB7abRSwYroicnWqnygsm8OKXEmsPQLv/view?usp=sharing',
 }
 
 export const services = [
@@ -152,12 +150,6 @@ export const projects = [
     technologies: ['Python', 'LLMs', 'Whisper'],
     link: 'https://github.com/Ayu10x/local_multimodal_ai_chat',
     note: 'Published in ODICON 2024 proceedings (IEEE)',
-  },
-  {
-    title: 'Book Microservice',
-    description: 'A REST microservice with full CRUD for book resources, built on Django REST Framework.',
-    technologies: ['Python', 'Django REST Framework'],
-    link: 'https://github.com/Ayu10x/django-book-microservice',
   },
   {
     title: 'Object Detection on Raspberry Pi',
