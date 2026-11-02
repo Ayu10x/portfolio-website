@@ -154,13 +154,6 @@ export const projects = [
     note: 'Published in ODICON 2024 proceedings (IEEE)',
   },
   {
-    title: 'Spring Security Web App',
-    description:
-      'Form login, role-based access control and protected routes configured with Spring Security.',
-    technologies: ['Java', 'Spring Boot', 'Spring Security'],
-    link: 'https://github.com/Ayu10x/securing-web-app',
-  },
-  {
     title: 'Book Microservice',
     description: 'A REST microservice with full CRUD for book resources, built on Django REST Framework.',
     technologies: ['Python', 'Django REST Framework'],
